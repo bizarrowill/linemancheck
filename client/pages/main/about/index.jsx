@@ -24,12 +24,11 @@ class AboutPage extends React.Component {
                                 </div>
                             </div>
                             <div className="media-body">
-                                <h4 className="media-heading">Leo Damon</h4>
+                                <h4 className="media-heading">Check Man</h4>
                                 <p>
-                                    Pork belly salvia tilde chia freegan four
-                                    loko. Fingerstache microdosing succulents
-                                    VHS venmo green juice wolf leggings hoodie
-                                    shabby chic direct trade flannel.
+                                    Catchy buzzword followed by more buzzwords.  
+                                    If you needed another buzzword it will be 
+                                    coming soon.
                                 </p>
                             </div>
                         </div>
@@ -41,13 +40,10 @@ class AboutPage extends React.Component {
                                 </div>
                             </div>
                             <div className="media-body">
-                                <h4 className="media-heading">Mathew DiCaprio</h4>
+                                <h4 className="media-heading">Check Mate</h4>
                                 <p>
-                                    Seitan cloud bread messenger bag small
-                                    batch. Green juice 90s banjo activated
-                                    charcoal wolf. Subway tile scenester
-                                    shoreditch, quinoa edison bulb kogi
-                                    microdosing cliche DIY tumeric meh.
+                                    Runnin Wild across the galaxy. Cheers
+                                    to bacon and BBQ! Have a nice day.
                                 </p>
                             </div>
                         </div>
@@ -59,21 +55,18 @@ class AboutPage extends React.Component {
                                 </div>
                             </div>
                             <div className="media-body">
-                                <h4 className="media-heading">Nick Jackson</h4>
+                                <h4 className="media-heading">Wally the Dog</h4>
                                 <p>
-                                    Salvia man braid four dollar toast
-                                    chicharrones, selvage hell of selfies.
-                                    Try-hard crucifix cray freegan, viral
-                                    fingerstache aesthetic. Cronut butcher
-                                    irony brooklyn kitsch thundercats.
+                                    Drones and good times. Frosty Paws. Naps. Don't
+                                    @ me bro.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-6 text-center">
-                        <h1 className="page-header">Prestige worldwide</h1>
+                        <h1 className="page-header">Check</h1>
                         <p className="lead">
-                            The first name in entertainment.
+                            The first name in Lineman verification.
                         </p>
                         <i className="fa fa-volume-up bamf"></i>
                     </div>

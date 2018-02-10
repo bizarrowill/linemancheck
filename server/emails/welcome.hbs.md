@@ -8,6 +8,6 @@ Here are your login credentials:
 | Username: | {{username}} |
 | Email:    | {{email}}    |
 
-Love,
+Cheers,
 
-The Plot Device
+LinemanCheck

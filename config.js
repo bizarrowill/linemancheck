@@ -12,7 +12,7 @@ const criteria = {
 
 const config = {
     $meta: 'This file configures the plot device.',
-    projectName: 'Aqua',
+    projectName: 'LineCheck',
     port: {
         web: {
             $filter: 'env',
@@ -41,8 +41,8 @@ const config = {
             uri: {
                 $filter: 'env',
                 production: process.env.MONGODB_URI,
-                test: 'mongodb://localhost:27017/aqua-test',
-                $default: 'mongodb://localhost:27017/aqua'
+                test: 'mongodb://localhost:27017/linecheck-test',
+                $default: 'mongodb://localhost:27017/linecheck'
             }
         },
         autoIndex: true
@@ -52,7 +52,7 @@ const config = {
         port: 465,
         secure: true,
         auth: {
-            user: 'jedireza@gmail.com',
+            user: 'williamp.robertson@gmail.com',
             pass: process.env.SMTP_PASSWORD
         }
     },

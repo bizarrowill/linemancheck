@@ -14,11 +14,11 @@ class HomePage extends React.Component {
         return (
             <section className="section-home container">
                 <Helmet>
-                    <title>Aqua</title>
+                    <title>Check</title>
                 </Helmet>
                 <div className="jumbotron">
-                    <h1>Success</h1>
-                    <p className="lead">Your website and user system is ready.</p>
+                    <h1>Check</h1>
+                    <p className="lead">Your solution to not hiring idiots.</p>
                 </div>
                 <div className="row">
                     <div className="col-sm-4">
@@ -28,11 +28,7 @@ class HomePage extends React.Component {
                             </div>
                             <div className="panel-body">
                                 <p>
-                                    Bicycle rights jean shorts la croix
-                                    vexillologist hell of kitsch. Photo booth
-                                    craft beer fixie raw denim hot chicken.
-                                    Pickled adaptogen sartorial brooklyn tilde
-                                    bay area.
+                                    A one stop shop for your organization to X, Y and Z.
                                 </p>
                                 <Link to="/about" className="btn btn-info btn-block">
                                     Learn more
@@ -47,10 +43,7 @@ class HomePage extends React.Component {
                             </div>
                             <div className="panel-body">
                                 <p>
-                                    Health goth skateboard tousled umami, tofu
-                                    squid organic freegan +1 keytar brunch
-                                    post-ironic. Copper mug selfies tattooed
-                                    chicharrones short ribs yolo cardigan.
+                                    Why wait? Go Pack Go. Sign up now.
                                 </p>
                                 <Link to="/signup" className="btn btn-success btn-block">
                                     Learn more
@@ -65,10 +58,7 @@ class HomePage extends React.Component {
                             </div>
                             <div className="panel-body">
                                 <p>
-                                    Roof party readymade tote bag hot chicken
-                                    blog. Fam readymade raclette hella quinoa.
-                                    Cred pour-over yuccie williamsburg shabby
-                                    chic ramps chartreuse messenger bag.
+                                    Questions? Random filler text here. Hit us up here.
                                 </p>
                                 <Link to="/contact" className="btn btn-warning btn-block">
                                     Learn more

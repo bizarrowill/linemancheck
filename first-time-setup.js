@@ -8,9 +8,7 @@ const Promptly = require('promptly');
 Async.auto({
     mongodbUri: (done) => {
 
-        const options = {
-            default: 'mongodb://localhost:27017/linecheck'
-        };
+        const options = { default: "mongodb://127.0.0.1:27017/linemancheck" };
 
         Promptly.prompt(`MongoDB URI: (${options.default})`, options, done);
     },

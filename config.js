@@ -24,7 +24,7 @@ const config = {
     baseUrl: {
         $filter: "env",
         $meta: 'values should not end in "/"',
-        production: "process.env.MONGODB_URI",
+        production: "https://linemancheck.herokuapp.com",
         $default: "http://127.0.0.1:8000"
     },
     authAttempts: {
@@ -42,7 +42,7 @@ const config = {
                 $filter: "env",
                 production: process.env.MONGODB_URI,
                 test: "mongodb://127.0.0.1:27017/linemancheck-test",
-                $default: "mongodb://127.0.0.1:27017/linemancheck"
+                $default: "process.env.MONGODB_URI"
             }
         },
         autoIndex: true

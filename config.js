@@ -25,7 +25,7 @@ const config = {
         $filter: "env",
         $meta: 'values should not end in "/"',
         production: "https://linemancheck.herokuapp.com",
-        $default: "http://127.0.0.1:8000"
+        $default: "mongodb://127.0.0.1:27017/linemancheck"
     },
     authAttempts: {
         forIp: 50,

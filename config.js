@@ -42,7 +42,7 @@ const config = {
                 $filter: "env",
                 production: process.env.MONGODB_URI,
                 test: "mongodb://127.0.0.1:27017/linemancheck-test",
-                $default: "process.env.MONGODB_URI"
+                $default: "mongodb://127.0.0.1:27017/linemancheck"
             }
         },
         autoIndex: true

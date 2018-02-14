@@ -8,7 +8,7 @@ const Promptly = require('promptly');
 Async.auto({
     mongodbUri: (done) => {
 
-        const options = { default: process.env.MONGODB_URI };
+        const options = { default: "mongodb://admin:Gopackgo77@ds157247.mlab.com:57247/heroku_mf6m45w0" };
 
         Promptly.prompt(`MongoDB URI: (${options.default})`, options, done);
     },

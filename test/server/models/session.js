@@ -10,9 +10,9 @@ const lab = exports.lab = Lab.script();
 const mongoUri = Config.get('/hapiMongoModels/mongodb/uri');
 const mongoOptions = Config.get('/hapiMongoModels/mongodb/options');
 const stub = {
-    bcrypt: {}
+    bcryptjs: {}
 };
-const Session = Proxyquire('../../../server/models/session', { bcrypt: stub.bcrypt });
+const Session = Proxyquire('../../../server/models/session', { bcryptjs: stub.bcryptjs });
 
 
 lab.experiment('Session Class Methods', () => {
@@ -53,10 +53,10 @@ lab.experiment('Session Class Methods', () => {
 
     lab.test('it returns an error when key hash fails', (done) => {
 
-        const realGenSalt = stub.bcrypt.genSalt;
-        stub.bcrypt.genSalt = function (rounds, callback) {
+        const realGenSalt = stub.bcryptjs.genSalt;
+        stub.bcryptjs.genSalt = function (rounds, callback) {
 
-            callback(Error('bcrypt failed'));
+            callback(Error('bcryptjs failed'));
         };
 
         Session.generateKeyHash((err, result) => {
@@ -64,7 +64,7 @@ lab.experiment('Session Class Methods', () => {
             Code.expect(err).to.be.an.object();
             Code.expect(result).to.not.exist();
 
-            stub.bcrypt.genSalt = realGenSalt;
+            stub.bcryptjs.genSalt = realGenSalt;
 
             done();
         });
@@ -149,8 +149,8 @@ lab.experiment('Session Class Methods', () => {
             callback(null, { _id: '2D', userId: '1D', key: 'letmein' });
         };
 
-        const realCompare = stub.bcrypt.compare;
-        stub.bcrypt.compare = function (key, source, callback) {
+        const realCompare = stub.bcryptjs.compare;
+        stub.bcryptjs.compare = function (key, source, callback) {
 
             callback(null, false);
         };
@@ -161,7 +161,7 @@ lab.experiment('Session Class Methods', () => {
             Code.expect(result).to.not.exist();
 
             Session.findById = realFindById;
-            stub.bcrypt.compare = realCompare;
+            stub.bcryptjs.compare = realCompare;
 
             done();
         });

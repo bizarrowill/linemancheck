@@ -12,12 +12,12 @@ const mongoOptions = Config.get('/hapiMongoModels/mongodb/options');
 const stub = {
     Account: {},
     Admin: {},
-    bcrypt: {}
+    bcryptjs: {}
 };
 const User = Proxyquire('../../../server/models/user', {
     './account': stub.Account,
     './admin': stub.Admin,
-    bcrypt: stub.bcrypt
+    bcryptjs: stub.bcryptjs
 });
 const Admin = require('../../../server/models/admin');
 const Account = require('../../../server/models/account');
@@ -61,10 +61,10 @@ lab.experiment('User Class Methods', () => {
 
     lab.test('it returns an error when password hash fails', (done) => {
 
-        const realGenSalt = stub.bcrypt.genSalt;
-        stub.bcrypt.genSalt = function (rounds, callback) {
+        const realGenSalt = stub.bcryptjs.genSalt;
+        stub.bcryptjs.genSalt = function (rounds, callback) {
 
-            callback(Error('bcrypt failed'));
+            callback(Error('bcryptjs failed'));
         };
 
         User.generatePasswordHash('bighouseblues', (err, result) => {
@@ -72,7 +72,7 @@ lab.experiment('User Class Methods', () => {
             Code.expect(err).to.be.an.object();
             Code.expect(result).to.not.exist();
 
-            stub.bcrypt.genSalt = realGenSalt;
+            stub.bcryptjs.genSalt = realGenSalt;
 
             done();
         });
@@ -152,8 +152,8 @@ lab.experiment('User Class Methods', () => {
             callback(null, { username: 'toastman', password: 'letmein' });
         };
 
-        const realCompare = stub.bcrypt.compare;
-        stub.bcrypt.compare = function (key, source, callback) {
+        const realCompare = stub.bcryptjs.compare;
+        stub.bcryptjs.compare = function (key, source, callback) {
 
             callback(null, false);
         };
@@ -164,7 +164,7 @@ lab.experiment('User Class Methods', () => {
             Code.expect(result).to.not.exist();
 
             User.findOne = realFindOne;
-            stub.bcrypt.compare = realCompare;
+            stub.bcryptjs.compare = realCompare;
 
             done();
         });

@@ -1,7 +1,7 @@
 'use strict';
 const AuthAttempt = require('../../../server/models/auth-attempt');
 const AuthPlugin = require('../../../server/auth');
-const Bcrypt = require('bcrypt');
+const Bcryptjs = require('bcryptjs');
 const Code = require('code');
 const Config = require('../../../config');
 const Hapi = require('hapi');
@@ -422,8 +422,8 @@ lab.experiment('Login Plugin Reset Password', () => {
             callback(null, user);
         };
 
-        const realBcryptCompare = Bcrypt.compare;
-        Bcrypt.compare = function (key, token, callback) {
+        const realBcryptjsCompare = Bcryptjs.compare;
+        Bcryptjs.compare = function (key, token, callback) {
 
             callback(Error('compare failed'));
         };
@@ -432,7 +432,7 @@ lab.experiment('Login Plugin Reset Password', () => {
 
             Code.expect(response.statusCode).to.equal(500);
 
-            Bcrypt.compare = realBcryptCompare;
+            Bcryptjs.compare = realBcryptjsCompare;
 
             done();
         });
@@ -453,8 +453,8 @@ lab.experiment('Login Plugin Reset Password', () => {
             callback(null, user);
         };
 
-        const realBcryptCompare = Bcrypt.compare;
-        Bcrypt.compare = function (key, token, callback) {
+        const realBcryptjsCompare = Bcryptjs.compare;
+        Bcryptjs.compare = function (key, token, callback) {
 
             callback(null, false);
         };
@@ -463,7 +463,7 @@ lab.experiment('Login Plugin Reset Password', () => {
 
             Code.expect(response.statusCode).to.equal(400);
 
-            Bcrypt.compare = realBcryptCompare;
+            Bcryptjs.compare = realBcryptjsCompare;
 
             done();
         });
@@ -484,8 +484,8 @@ lab.experiment('Login Plugin Reset Password', () => {
             callback(null, user);
         };
 
-        const realBcryptCompare = Bcrypt.compare;
-        Bcrypt.compare = function (key, token, callback) {
+        const realBcryptjsCompare = Bcryptjs.compare;
+        Bcryptjs.compare = function (key, token, callback) {
 
             callback(null, true);
         };
@@ -499,7 +499,7 @@ lab.experiment('Login Plugin Reset Password', () => {
 
             Code.expect(response.statusCode).to.equal(200);
 
-            Bcrypt.compare = realBcryptCompare;
+            Bcryptjs.compare = realBcryptjsCompare;
 
             done();
         });

@@ -2,7 +2,7 @@
 const Account = require('./account');
 const Admin = require('./admin');
 const Async = require('async');
-const Bcrypt = require('bcrypt');
+const Bcryptjs = require('bcryptjs');
 const Joi = require('joi');
 const MongoModels = require('mongo-models');
 
@@ -13,11 +13,11 @@ class User extends MongoModels {
         Async.auto({
             salt: function (done) {
 
-                Bcrypt.genSalt(10, done);
+                Bcryptjs.genSalt(10, done);
             },
             hash: ['salt', function (results, done) {
 
-                Bcrypt.hash(password, results.salt, done);
+                Bcryptjs.hash(password, results.salt, done);
             }]
         }, (err, results) => {
 
@@ -89,7 +89,7 @@ class User extends MongoModels {
                 }
 
                 const source = results.user.password;
-                Bcrypt.compare(password, source, done);
+                Bcryptjs.compare(password, source, done);
             }]
         }, (err, results) => {
 

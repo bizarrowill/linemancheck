@@ -1,6 +1,6 @@
 'use strict';
 const Async = require('async');
-const Bcrypt = require('bcrypt');
+const Bcryptjs = require('bcryptjs');
 const Boom = require('boom');
 const Config = require('../../config');
 const Joi = require('joi');
@@ -243,7 +243,7 @@ internals.applyRoutes = function (server, next) {
 
                     const key = request.payload.key;
                     const token = request.pre.user.resetPassword.token;
-                    Bcrypt.compare(key, token, done);
+                    Bcryptjs.compare(key, token, done);
                 },
                 passwordHash: ['keyMatch', function (results, done) {
 

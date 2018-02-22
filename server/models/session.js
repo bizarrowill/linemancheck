@@ -1,6 +1,6 @@
 'use strict';
 const Async = require('async');
-const Bcrypt = require('bcrypt');
+const Bcryptjs = require('bcryptjs');
 const Joi = require('joi');
 const MongoModels = require('mongo-models');
 const Uuid = require('uuid');
@@ -14,11 +14,11 @@ class Session extends MongoModels {
         Async.auto({
             salt: function (done) {
 
-                Bcrypt.genSalt(10, done);
+                Bcryptjs.genSalt(10, done);
             },
             hash: ['salt', function (results, done) {
 
-                Bcrypt.hash(key, results.salt, done);
+                Bcryptjs.hash(key, results.salt, done);
             }]
         }, (err, results) => {
 
@@ -86,7 +86,7 @@ class Session extends MongoModels {
                 }
 
                 const source = results.session.key;
-                Bcrypt.compare(key, source, done);
+                Bcryptjs.compare(key, source, done);
             }]
         }, (err, results) => {
 
